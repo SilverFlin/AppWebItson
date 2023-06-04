@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios HTML</title>
+  </head>
+  <body>
+    <header style="margin: 0% 5% 5%">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Más documentación</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <hr />
+    <aside>
+      <details>
+        <summary>Tabla de Contenidos</summary>
+        <nav>
+          <ul>
+            <li>
+              <a href="#elementos">Elementos</a>
+              <ol>
+                <li>
+                  <a href="#form">form</a>
+                </li>
+                <li>
+                  <a href="#label">label</a>
+                </li>
+                <li>
+                  <a href="#input">input</a>
+                </li>
+                <li>
+                  <a href="#textarea">textarea</a>
+                </li>
+                <li>
+                  <a href="#select">select</a>
+                </li>
+                <li>
+                  <a href="#option">option</a>
+                </li>
+                <li>
+                  <a href="#button">button</a>
+                </li>
+              </ol>
+            </li>
+            <li><a href="#formulario">Formulario Prueba</a></li>
+          </ul>
+        </nav>
+      </details>
+    </aside>
+    <!-- Cambiar a Div wrapper para ajustar margen -->
+    <main style="margin: 5% 5% 5%">
+      <h1>Formularios de HTML</h1>
+      <section>
+        <header>
+          <h2 id="elementos">Elementos</h2>
+        </header>
+
+        <article id="form">
+          <header>
+            <h3>&lt;form&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento <code>&lt;form&gt;</code> representa una sección que
+              contiene controles interactivos para enviar información.
+            </p>
+          </div>
+
+          <section>
+            <h4>action=""</h4>
+            <div>
+              <p>
+                Aquí va el URL que procesa el formulario. <br />
+                Este valor puede ser sobreescrito con un atributo
+                <code>formaction</code> en un elemento
+                <code>&lt;button&gt;</code>, o
+                <code>&lt;input type="image">&gt;</code>.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h4>target=""</h4>
+            <div>
+              <p>
+                Indica donde desplegar la respuesta después de enviar el
+                formulario.
+              </p>
+              <p>Los posibles valores son:</p>
+              <ul>
+                <li>
+                  <code>_self</code> (default): Carga la respuesta en el mismo
+                  contexto (i.e. pestaña).
+                </li>
+                <li>
+                  <code>_blank</code>: Lo carga en una nuva pestaña. Provee el
+                  mismo comportamiento que la configuración
+                  <code>rel="noopener"</code>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h4>method=""</h4>
+            <div>
+              <p>
+                Aquí se establece el método HTTP en el que se procesará el
+                formulario.
+              </p>
+              <p>Los métodos (case insensitive) son:</p>
+              <ul>
+                <li>
+                  <code>post</code>: Se manda la información del formulario en
+                  el <code>body</code> de la petición.
+                </li>
+                <li>
+                  <code>get</code> (default): La información se agrega al URL
+                  establecido en <code>action</code> con un <code>?</code> como
+                  separador.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </article>
+        <hr />
+        <article id="label">
+          <header>
+            <h3>&lt;label&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento <code>&lt;label&gt;</code> representa un subtítulo de
+              un item en la interfaz de usuario.
+            </p>
+            <p>
+              Asociar un <code>&lt;label&gt;</code> a un elemento de un
+              formulario, como <code>&lt;input&gt;</code> o
+              <code>&lt;textarea&gt;</code> ofrece ventajas como:
+            </p>
+            <ul>
+              <li>
+                Se crea una asociación en el contexto de programación: un screen
+                reader leerá el label si el usuario está utilizando el input.
+              </li>
+              <li>
+                Si un usuario pulsa en el label, el navegador pasa el foco al
+                input asociado.
+              </li>
+            </ul>
+          </div>
+
+          <section>
+            <h4>for=""</h4>
+            <div>
+              <p>
+                El valor del atributo for debe ser un único <code>id</code> para
+                un elemento del formulario existenten en el mismo documento que
+                el elemento<code>&lt;label&gt;</code>.
+              </p>
+            </div>
+          </section>
+        </article>
+        <hr />
+        <article id="input">
+          <header>
+            <h3>&lt;input&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento <code>&lt;input&gt;</code> es usado para crear
+              contorladores interactivos en formularios, con intención de
+              obtener información del usuario. Hay muchos tipos de inputs
+              disponibles, dependiendo en el dispositivo del usuario.
+            </p>
+          </div>
+
+          <section>
+            <h4>placeholder=""</h4>
+            <div>
+              <p>
+                Valido para <code>text</code>, <code>search</code>,
+                <code>url</code>, <code>tel</code>, <code>email</code>,
+                <code>password</code>, y <code>number</code>, el atributo
+                placerholder provee una pista al usuario de qué tipo de
+                información se espera en ese campo.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h4>value=""</h4>
+            <div>
+              <p>
+                Especifica el valor inicial. Es un atributo opcional, pero se
+                debería considerar obligatorio para los inputs
+                <code>checkbox</code>, <code>radio</code>, y
+                <code>hidden</code>.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>readonly</h4>
+            <div>
+              <p>
+                Es un atributo booleano que representa si el elemento es mutable
+                o no, significando si el usuario será capaz de editarlo.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>disabled</h4>
+            <div>
+              <p>
+                Es un atributo booleano que representa, si es que se incluye,
+                que el usuario no debería interactuar con el input. <br />
+                Los inputs con disabled no obtienen el evento click, y no son
+                enviados en el formulario.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>required</h4>
+            <div>
+              <p>
+                Es un atributo booleano, que indica que el usuario debe
+                especificar un valor al campo antes de que el formulario sea
+                enviado.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>type="text"</h4>
+            <div>
+              <p>Crea un campo de texto de una linea. Ej.</p>
+              <input type="text" name="" id="" placeholder="Ejemplo" />
+            </div>
+          </section>
+          <section>
+            <h4>type="password"</h4>
+            <div>
+              <p>
+                Crea un campo de texto de una linea, donde los caracteres se
+                reemplazan con un símbolo para ocultar lo que se escriba. Ej.
+              </p>
+              <input type="password" name="" id="" placeholder="Ejemplo" />
+            </div>
+          </section>
+          <section>
+            <h4>type="date"</h4>
+            <div>
+              <p>
+                Crea un campo que le permite al ususario ingresar una fecha, y
+                asea con un textbox o con un selector de fecha. Ej.
+              </p>
+              <input type="date" name="" id="" />
+            </div>
+          </section>
+          <section>
+            <h4>type="checkbox"</h4>
+            <div>
+              <p>
+                Los elementos checkbox son, por default, cajas que pueden ser
+                seleccionadas al activarlas. Ej.
+              </p>
+              <input type="checkbox" name="" id="" />
+            </div>
+          </section>
+          <section>
+            <h4>type="reset"</h4>
+            <div>
+              <p>
+                El elemento de tipo reset se renderiza como un botón, que al
+                presionarlo limpia todos los campos del formulario a sus valores
+                iniciales.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>type="button"</h4>
+            <div>
+              <p>
+                Los elementos tipo button se renderizan como simples botones,
+                que pueden ser programados para agregar funcionalidad.
+              </p>
+              <button>Hola</button>
+              <aside>
+                Los elementos de tipo botón son HTML válido, pero el elemento
+                button es una mejor forma de crear botones.
+              </aside>
+            </div>
+          </section>
+          <section>
+            <h4>type="submit"</h4>
+            <div>
+              <p>Crea un botón que al pulsarlo el formulario será enviado.</p>
+            </div>
+          </section>
+        </article>
+        <hr />
+        <article id="textarea">
+          <header>
+            <h3>&lt;textarea&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento de textarea representa un campo de texto con varias
+              lineas. Ej.
+            </p>
+            <textarea name="" id="" cols="60" rows="4"></textarea>
+          </div>
+
+          <section>
+            <h4>rows=""</h4>
+            <div>
+              <p>Especifica la cantidad de filas.</p>
+            </div>
+          </section>
+
+          <section>
+            <h4>cols=""</h4>
+            <div>
+              <p>Especifica la cantidad de columnas.</p>
+            </div>
+          </section>
+        </article>
+        <hr />
+        <article id="select">
+          <header>
+            <h3>&lt;select&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento select provee un menu con opciones, se usa de la mano
+              con el elemento <code>option</code>
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article id="option">
+          <header>
+            <h3>&lt;option&gt;</h3>
+          </header>
+          <div>
+            <p>
+              El elemento option se usa para definir los items contenidos en un
+              elemento <code>select</code>. Ej.
+            </p>
+            <select name="" id="">
+              <option value="1">Ejemplo</option>
+              <option value="2">Gatos gruñones</option>
+              <option value="3">Perros gruñones</option>
+            </select>
+          </div>
+
+          <section>
+            <h4>value=""</h4>
+            <div>
+              <p>
+                El contenido de este atributo representa el valor que va a ser
+                enviado cuando el formulario se acepte.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>selected</h4>
+            <div>
+              <p>
+                Es un valor booleano que indica que opción es la que va a
+                aparecer seleccionada en el elemento <code>select</code>.
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <article id="button">
+          <header>
+            <h3>&lt;button&gt;</h3>
+          </header>
+          <div>
+            <p>
+              Es un elemento interacitvo activado por el usuario mediante el
+              mouse, teclado, dedo, comando de voz, o asistente tecnológico. Una
+              vez activado, este realiza una acción, como enviar un formulario o
+              abrir un cuadro de diálogo. Ej.
+            </p>
+            <button id="pruebaBoton">Púlsame</button>
+          </div>
+        </article>
+      </section>
+      <hr />
+      <section>
+        <header>
+          <h2 id="formulario">Formulario Prueba</h2>
+        </header>
+
+        <form id="formularioPrueba" action="POST">
+          <h1>Students Data Entry Form</h1>
+
+          <label for="studentName">Student Name: </label>
+          <input required type="text" name="studentName" id="studentName" />
+          <br />
+
+          <label for="email">Email: </label>
+          <input required type="email" name="email" id="email" />
+          <br />
+
+          <span>Gender: </span>
+          <input required type="radio" name="gender" id="boy" value="boy" />
+          <label for="boy">Boy</label>
+          <input required type="radio" name="gender" id="girl" value="girl" />
+          <label for="girl">Girl</label>
+          <br />
+
+          <span>Subjects: </span>
+          <input type="checkbox" name="subjects" id="tamil" />
+          <label for="tamil">Tamil</label>
+          <input type="checkbox" name="subjects" id="telugu" />
+          <label for="telugu">Telugu</label>
+          <input type="checkbox" name="subjects" id="english" />
+          <label for="english">English</label>
+          <input type="checkbox" name="subjects" id="physics" />
+          <label for="physics">Physics</label>
+          <input type="checkbox" name="subjects" id="economics" />
+          <label for="economics">Economics</label>
+          <br />
+
+          <label for="city">City/Town: </label>
+          <select required name="city" id="city">
+            <option value="">--Please choose an option--</option>
+            <option value="madurai" default>Madurai</option>
+          </select>
+          <br />
+
+          <label for="comments">Comments:</label>
+          <br />
+          <textarea
+            wrap="soft"
+            name="comments"
+            id="comments"
+            cols="55"
+            rows="5"
+          ></textarea>
+          <br />
+
+          <button type="reset">Clear</button>
+          <button id="submit" type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <hr />
+    <footer>
+      <section>
+        <h5>Contacto</h5>
+        <a href="mailto:toledorusso@outlook.com">toledorusso@outlook.com</a>
+        <p>Luis Angel Toledo Russo</p>
+      </section>
+    </footer>
+  </body>
+  <script>
+    let form = document.getElementById("formularioPrueba");
+
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      alert("Formulario enviado");
+      form.reset();
+    });
+
+    let pruebaBoton = document.getElementById("pruebaBoton");
+
+    pruebaBoton.addEventListener("click", () => {
+      alert("Hola, Pirinola.");
+    });
+  </script>
+  <style>
+    body {
+      font-family: serif;
+      font-size: 1.2em;
+    }
+  </style>
+</html>
