@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- 53 187 153 verd -->
+
+    <div class="mainWrapper">
+      <main>
+        <section>
+          <header>
+            <h1>Create Account</h1>
+          </header>
+          <form action="POST" id="createAccount">
+            <div class="formContainer">
+              <div class="column-1 item">
+                <label for="name">First name *</label>
+                <input
+                  required
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="enter your first name"
+                />
+              </div>
+
+              <div class="column-1 item">
+                <label for="name">Last name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="enter your last name"
+                />
+              </div>
+
+              <div class="column-2 item">
+                <label for="name">Email*</label>
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="enter your email"
+                />
+              </div>
+
+              <div class="column-1 item">
+                <label for="name">Password *</label>
+                <input
+                  required
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="enter your password"
+                />
+              </div>
+
+              <div class="column-1 item">
+                <label for="name">Confirm Password*</label>
+                <input
+                  requireds
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  placeholder="enter your password again"
+                />
+              </div>
+
+              <div class="column-1 item">
+                <fieldset>
+                  <legend>Gender:</legend>
+                  <div>
+                    <input type="radio" name="gender" value="male" id="male" />
+                    <label for="male">Male</label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="female"
+                      id="female"
+                    />
+                    <label for="female">Female</label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="column-1 item">
+                <fieldset>
+                  <legend>Hobbies</legend>
+
+                  <div>
+                    <input type="checkbox" name="music" id="music" />
+                    <label for="music">Music</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="sports" id="sports" />
+                    <label for="sports">Sports</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="travel" id="travel" />
+                    <label for="travel">Travel</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="movies" id="movies" />
+                    <label for="movies">Movies</label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="column-1 item">
+                <label for="sourceIncome">Source of Income</label>
+                <select name="sourceIncome" id="sourceIncome">
+                  <option value="employed">Employed</option>
+                  <!-- Preguntar opciones -->
+                </select>
+              </div>
+
+              <div class="column-1 item">
+                <label for="income">Income</label>
+                <input
+                  value="0"
+                  type="range"
+                  name="income"
+                  id="income"
+                  min="0"
+                />
+                <span id="amountIncome">0K</span>
+              </div>
+
+              <div class="column-1 item">
+                <label for="profilePicture">Upload Profile Picture</label>
+                <input type="file" name="profilePicture" id="profilePicture" />
+              </div>
+
+              <div class="column-1 item">
+                <label for="age">Age</label>
+                <input
+                  value="18"
+                  type="number"
+                  name="age"
+                  id="age"
+                  min="0"
+                  max="130"
+                />
+              </div>
+
+              <div class="column-2 item">
+                <label for="bio">Bio</label>
+                <textarea
+                  name="bio"
+                  id="bio"
+                  cols="30"
+                  rows="10"
+                  maxlength="900"
+                ></textarea>
+              </div>
+            </div>
+          </form>
+          <footer>
+            <button class="createBtn" form="createAccount">Create</button>
+          </footer>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

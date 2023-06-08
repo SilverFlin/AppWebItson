@@ -1,0 +1,110 @@
+body {
+  background-color: rgb(23, 38, 44);
+  font-family: sans-serif;
+}
+
+main header {
+  background-color: rgb(228, 221, 221);
+  border-radius: 1em 1em 0 0;
+  color: rgb(94, 91, 91);
+  text-align: center;
+}
+section header h1 {
+  padding: 10px 0;
+}
+main footer {
+  background-color: rgb(228, 221, 221);
+  border-radius: 0 0 1em 1em;
+  margin-top: 20px;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mainWrapper {
+  margin: 5%;
+  background-color: white;
+  border-radius: 30px 30px 30px 30px;
+  box-shadow: 5px 10px 5px black;
+}
+
+label,
+legend {
+  color: rgb(53, 187, 153);
+  font-weight: 700;
+}
+
+fieldset label {
+  color: black;
+  font-weight: 400;
+}
+fieldset div {
+  display: inline-flex;
+}
+
+fieldset {
+  border: none;
+  padding-left: 0;
+}
+
+.formContainer {
+  display: flex;
+  width: 95%;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.column-1 {
+  width: 50%;
+  margin: 20px 0;
+}
+
+.column-2 {
+  width: 100%;
+}
+
+.formContainer div > label {
+  display: block;
+}
+
+.column-1 input[type="text"],
+.column-1 input[type="number"],
+.column-1 input[type="password"],
+.column-2 input[type="email"],
+.column-1 select,
+.formContainer textarea {
+  height: 2em;
+  width: 95%;
+  border: 1px solid rgb(226, 222, 222);
+  border-radius: 10px;
+}
+
+.column-1 input[type="range"] {
+  width: 80%;
+}
+
+.column-2 input[type="email"],
+.formContainer textarea {
+  width: calc(100% - (5% / 2));
+}
+
+.formContainer textarea {
+  height: auto;
+  resize: none;
+}
+
+#amountIncome {
+  background-color: rgb(53, 187, 153);
+  border-radius: 20%;
+  color: white;
+  padding: 5px;
+}
+.createBtn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(53, 187, 153);
+  color: white;
+}
