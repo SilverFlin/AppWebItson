@@ -33,11 +33,16 @@ legend {
   color: rgb(53, 187, 153);
   font-weight: 700;
 }
+label {
+  cursor: pointer;
+}
 
 fieldset label {
   color: black;
   font-weight: 400;
+  cursor: pointer;
 }
+
 fieldset div {
   display: inline-flex;
 }
@@ -79,10 +84,15 @@ fieldset {
   width: 95%;
   border: 1px solid rgb(226, 222, 222);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .column-1 input[type="range"] {
   width: 80%;
+  cursor: pointer;
+}
+.column-1 input[type="file"] {
+  cursor: pointer;
 }
 
 .column-2 input[type="email"],
@@ -107,4 +117,9 @@ fieldset {
   border: none;
   background-color: rgb(53, 187, 153);
   color: white;
+  cursor: pointer;
+}
+
+.createBtn:hover {
+  background-color: rgb(42, 148, 121);
 }
