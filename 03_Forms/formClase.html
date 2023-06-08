@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Clase</title>
+  </head>
+  <body>
+    <form
+      id="form-google"
+      name="form-google"
+      action="https://www.google.com/search"
+      method="GET"
+      target="_blank"
+    >
+      <label for="googleQuery">Buscar en Google</label>
+      <input id="googleQuery" type="text" name="q" />
+      <button type="submit">Buscar</button>
+    </form>
+    <hr />
+    <form
+      id="form-login"
+      name="form-login"
+      action="login"
+      method="post"
+      target="_self"
+    >
+      <fieldset>
+        <legend>Credenciales</legend>
+        <section>
+          <label for="user">Usuario: </label>
+          <input id="user" type="text" name="user" />
+        </section>
+
+        <section>
+          <ul>
+            <li>
+              <label for="password">Password: </label>
+            </li>
+            <li>
+              <input id="password" type="password" name="password" />
+            </li>
+          </ul>
+        </section>
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+        <section>
+          <input type="file" name="file" id="file" />
+          <img id="testImg" src="" alt="" />
+        </section>
+
+        <section>
+          <select name="prueba" id="" multiple size="6">
+            <optgroup label="pruebas1">
+              <option value="prueba1">prueba1</option>
+              <option value="prueba2">prueba2</option>
+              <option value="prueba3">prueba3</option>
+            </optgroup>
+            <optgroup label="pruebas2">
+              <option value="prueba4">prueba4</option>
+              <option value="prueba5">prueba5</option>
+              <option value="prueba6">prueba6</option>
+            </optgroup>
+          </select>
+        </section>
+      </fieldset>
+
+      <button type="reset">Cancel</button>
+      <button type="submit">Login</button>
+    </form>
+  </body>
+  <script>
+    let testFile = document.querySelector("#file");
+    let testForm = document.querySelector("#form-login");
+    let testImg = document.querySelector("#testImg");
+
+    // testForm.addEventListener("submit", (e) => {
+    //   e.preventDefault();
+
+    //   console.dir(testForm);
+    //   console.dir(testFile.files);
+    //   //   testImg.src = `document.url/${}`
+    //   console.dir(e);
+    // });
+  </script>
+</html>
