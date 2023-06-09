@@ -77,8 +77,7 @@ fieldset {
 .column-1 input[type="text"],
 .column-1 input[type="number"],
 .column-1 input[type="password"],
-.column-2 input[type="email"],
-.column-1 select,
+.column-2 input[type="email"] .column-1 select,
 .formContainer textarea {
   height: 2em;
   width: 95%;
@@ -87,7 +86,8 @@ fieldset {
   cursor: pointer;
 }
 
-.column-1 input[type="range"] {
+.column-1 input[type="range"],
+.column-1 input[type="file"] {
   width: 80%;
   cursor: pointer;
 }
