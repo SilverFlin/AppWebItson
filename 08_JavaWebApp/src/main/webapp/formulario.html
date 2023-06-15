@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form action="guardardatos2.jsp" method="POST">
+                <div> 
+                    <label for="correo" >Correo</label>
+                    <input type="email" name="correo" id="correo">
+                </div>
+                <div> 
+                    <label for="username" >Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div> 
+                    <label>Genero</label> <br>
+                    <label for="masculino" >Masculino</label>
+                    <input type="radio" name="genero" id="masculino">
+                    <label for="femenino">Femenino</label>
+                    <input type="radio" name="genero" id="femenino">
+                </div>
+                <div> 
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
