@@ -1,5 +1,8 @@
 package edu.itson.webapptest;
 
+import edu.itson.webapptest.dominio.Email;
+import edu.itson.webapptest.negocio.impl.EmailListBO;
+import edu.itson.webapptest.negocio.interfaces.IEmailListBO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -70,17 +73,17 @@ public class EmailList extends HttpServlet {
         /* Obtener datos */
         String action = request.getParameter("action");
 
-        String email = request.getParameter("email");
-        String username = request.getParameter("username");
+        String paramEmail = request.getParameter("email");
+        String paramUsername = request.getParameter("username");
 
         String paginaDestino = "/thanks.jsp";
         /* Validar Datos */
-        if (email == null
-                || email.isBlank()
-                || email.trim().length() > 20
-                || username == null
-                || username.isBlank()
-                || username.trim().length() > 50) {
+        if (paramEmail == null
+                || paramEmail.isBlank()
+                || paramEmail.trim().length() > 50
+                || paramUsername == null
+                || paramUsername.isBlank()
+                || paramUsername.trim().length() > 50) {
             paginaDestino = "/register.jsp";
             getServletContext()
                     .getRequestDispatcher(paginaDestino)
@@ -89,18 +92,21 @@ public class EmailList extends HttpServlet {
         }
 
         /* Logica de Negocio */
+        Email email = new Email(paramEmail, paramUsername);
 
- /* Generar respuesta */
+        IEmailListBO emailListBO = new EmailListBO();
+        Email emailGuardado = emailListBO.createEmail(email);
+
+        /* Generar respuesta */
         if (action == null) {
             action = "join";
         }
 
-        if (action.equals("thanks")) {
-//            getServerletContext().getRequestDispatcher
+        if (action.equals("postEmail")) {
 
-            request.setAttribute("username", username);
-            request.setAttribute("email", email);
+            request.setAttribute("email", emailGuardado);
 
+            paginaDestino = "/thanks.jsp";
             getServletContext()
                     .getRequestDispatcher(paginaDestino)
                     .forward(request, response);

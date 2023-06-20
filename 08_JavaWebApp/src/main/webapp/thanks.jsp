@@ -13,6 +13,8 @@
     </head>
     <body>
         <h1>Thanks Page</h1>
-        <p>${mensaje}</p>
+        <p>Email: ${email.correo}</p>
+        <p>Username: ${email.username}</p>
+        <p>ID: ${email.id}</p>
     </body>
 </html>
