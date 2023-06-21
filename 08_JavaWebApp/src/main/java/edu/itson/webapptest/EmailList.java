@@ -4,6 +4,8 @@ import edu.itson.webapptest.dominio.Email;
 import edu.itson.webapptest.negocio.impl.EmailListBO;
 import edu.itson.webapptest.negocio.interfaces.IEmailListBO;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -92,10 +94,19 @@ public class EmailList extends HttpServlet {
         }
 
         /* Logica de Negocio */
-        Email email = new Email(paramEmail, paramUsername);
-
+        List<Email> emailList = new ArrayList<>();
         IEmailListBO emailListBO = new EmailListBO();
-        Email emailGuardado = emailListBO.createEmail(email);
+
+        for (int i = 0; i < 10; i++) {
+            
+            Email email = new Email(paramEmail+i, paramUsername+i);
+            email = emailListBO.createEmail(email);
+            emailList.add(email);
+            
+        }
+        
+        
+        
 
         /* Generar respuesta */
         if (action == null) {
@@ -104,7 +115,10 @@ public class EmailList extends HttpServlet {
 
         if (action.equals("postEmail")) {
 
-            request.setAttribute("email", emailGuardado);
+            
+            
+            
+            request.setAttribute("emailList", emailList);
 
             paginaDestino = "/thanks.jsp";
             getServletContext()

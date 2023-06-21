@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,9 +13,33 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Thanks Page</h1>
-        <p>Email: ${email.correo}</p>
-        <p>Username: ${email.username}</p>
-        <p>ID: ${email.id}</p>
+
+
+
+        <c:if test="${requestScope.email.correo != null}">
+
+            <h1>Thanks Page</h1>
+            <p>Email: ${requestScope.email.correo}</p>
+            <p>Username: ${requestScope.email.username}</p>
+            <p>ID: ${email.id}</p>
+
+        </c:if>
+
+        <c:if test="${requestScope.email.correo == null}">
+
+            <p>AAAAAAAAAAAAAAAA</p>
+
+        </c:if>
+
+        <c:forEach var="email" items="${requestScope.emailList}">
+            
+            <div>
+                <p>Email: ${email.correo}</p>
+                <p>Username: ${email.username}</p>
+                <p>ID: ${email.id}</p>
+            </div>
+            <hr>
+
+        </c:forEach>
     </body>
 </html>
