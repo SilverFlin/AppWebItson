@@ -1,11 +1,14 @@
 package edu.itson.webapptest;
 
 import edu.itson.webapptest.dominio.Email;
+import edu.itson.webapptest.exceptions.BOException;
 import edu.itson.webapptest.negocio.impl.EmailListBO;
 import edu.itson.webapptest.negocio.interfaces.IEmailListBO;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,7 +85,7 @@ public class EmailList extends HttpServlet {
         /* Validar Datos */
         if (paramEmail == null
                 || paramEmail.isBlank()
-                || paramEmail.trim().length() > 50
+                || paramEmail.trim().length() > 100
                 || paramUsername == null
                 || paramUsername.isBlank()
                 || paramUsername.trim().length() > 50) {
@@ -94,19 +97,20 @@ public class EmailList extends HttpServlet {
         }
 
         /* Logica de Negocio */
-        List<Email> emailList = new ArrayList<>();
+        Email email = new Email(paramEmail, paramUsername);
         IEmailListBO emailListBO = new EmailListBO();
 
-        for (int i = 0; i < 10; i++) {
-            
-            Email email = new Email(paramEmail+i, paramUsername+i);
-            email = emailListBO.createEmail(email);
-            emailList.add(email);
-            
+        try {
+            Email emailGuardado = emailListBO.create(email);
+            request.setAttribute("email", emailGuardado);
+        } catch (BOException ex) {
+            request.setAttribute("error", ex.getMessage());
+            request
+                    .getRequestDispatcher("/errorPage.jsp")
+                    .forward(request, response);
+            return;
         }
-        
-        
-        
+
 
         /* Generar respuesta */
         if (action == null) {
@@ -114,11 +118,6 @@ public class EmailList extends HttpServlet {
         }
 
         if (action.equals("postEmail")) {
-
-            
-            
-            
-            request.setAttribute("emailList", emailList);
 
             paginaDestino = "/thanks.jsp";
             getServletContext()
