@@ -2,10 +2,10 @@ package edu.itson.webapptest.persistence;
 
 import edu.itson.webapptest.dominio.Email;
 import edu.itson.webapptest.exceptions.PersistenceException;
+import java.util.List;
 
 /**
  *
- * @author Toled
  */
 public class FacadePersistence {
 
@@ -16,7 +16,14 @@ public class FacadePersistence {
     }
 
     public Email createEmail(final Email email) throws PersistenceException {
-        return this.emailListDAO.crear(email);
+        return this.emailListDAO.create(email);
     }
 
+    public List<Email> findAllEmails() throws PersistenceException {
+        return this.emailListDAO.findAll();
+    }
+
+    public Email findEmailById(final Integer id) throws PersistenceException {
+        return this.emailListDAO.findById(id);
+    }
 }

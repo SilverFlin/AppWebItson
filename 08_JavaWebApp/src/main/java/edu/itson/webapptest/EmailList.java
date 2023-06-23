@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.inject.Default;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,31 +37,34 @@ public class EmailList extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String mensaje = request.getParameter("mensaje");
-        String paginaDestino = "/thanks.jsp";
 
-        if (action == null) {
-            action = "join";
+        /* Default Action */
+        if (action == null || action.equalsIgnoreCase("find-all")) {
+            this.processFindAll(request, response);
         }
 
-        if (action.equals("thanks")) {
-//            getServerletContext().getRequestDispatcher
-            request.setAttribute("mensaje", mensaje);
-            getServletContext()
-                    .getRequestDispatcher(paginaDestino)
+    }
+
+    private void processFindAll(
+            final HttpServletRequest request,
+            final HttpServletResponse response
+    ) throws ServletException, IOException {
+
+        IEmailListBO emailListBO = new EmailListBO();
+
+        try {
+            List<Email> emailList = emailListBO.findAll();
+            request.setAttribute("emailList", emailList);
+        } catch (BOException ex) {
+            request.setAttribute("error", ex.getMessage());
+            request
+                    .getRequestDispatcher("/errorPage.jsp")
                     .forward(request, response);
             return;
-
         }
-
-        if (action.equals("formulario")) {
-//            response.setStatus(404);
-            response.sendRedirect("formulario.html");
-        }
-
-        if (action.equals("join")) {
-            response.sendRedirect("index.html");
-        }
+        getServletContext()
+                .getRequestDispatcher("/pages/emails/email-list.jsp")
+                .forward(request, response);
     }
 
     /**
